@@ -1,0 +1,38 @@
+{% extends "Tienda/plantilla.html" %}
+
+{% block main %}
+
+<div class="banner">
+<h2> "EL RINCÓN DEL COLECCIONISTA" </h2>
+<H3> Regístrate <br> y comienza a vender <br>
+   o intercambiar comics con la comunidad</H3>
+</div>
+
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <h1>Comics</h1>
+          <hr>
+      </div>
+  </div>
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+
+      {% for comic in comics %}
+        <div class="col-md-3 fondo1" >
+          {% if comic.imagen %}
+          <img src="{{ comic.imagen.url }}" height="144" width="144">
+          {% endif %}
+          <h2>{{comic.comic}}</h2>
+          <p>${{comic.precio}}</p>
+          <h4>Dueño: {{comic.publisher.username}} </h4>
+          <p><a class="btn btn-secondary" href="{% url 'comic-detail' comic.id %}">Ver más »</a></p>
+        </div>
+      {% endfor %}  
+    </div>
+  </div>
+</div>
+{% endblock %}

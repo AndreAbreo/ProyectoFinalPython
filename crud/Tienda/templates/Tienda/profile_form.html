@@ -1,0 +1,13 @@
+{% extends "Tienda/plantilla.html" %}
+
+{% block main %}
+<div class="fondo1">
+
+    <h1>PROFILE </h1>
+    <form class="form1" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Guardar">
+    </form>
+</div>
+{% endblock %}

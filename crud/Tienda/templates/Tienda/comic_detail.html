@@ -1,0 +1,33 @@
+{% extends "Tienda/Plantilla.html" %}
+
+{% block main %}
+<div class="fondo1" style="width: 50vh;">
+
+    <p>
+        <h2>{{object.titulo}}</h2>
+        <br>
+        {{object.comic}}
+        <br>
+        <br>
+        {{object.tomo}}
+        <br>
+        <br>
+        {% if object.imagen %}
+        <img src="{{ object.imagen.url }}" width="240px" height="100%">
+        {% endif %}
+        <br>
+        {{object.info}}
+        <br>
+        <br>
+        ${{object.precio}}
+        <br>
+        <br>
+        Dueño:{{object.publisher}}
+        <br>
+        <br>
+        {{object.publicado_el}}
+        <br>
+        <a href="{% url 'comic-list' %}"> volver</a>
+    </p>
+</div>
+{% endblock %}

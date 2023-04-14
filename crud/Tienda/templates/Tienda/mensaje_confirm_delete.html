@@ -1,0 +1,11 @@
+{% extends "Tienda/plantilla.html" %}
+{% block main %}
+<div class="fondo1">
+    <h1>Estas seguro que queres borrar el mensaje {{object.id}}?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Borrar">
+    </form>
+</div>
+{% endblock %}
